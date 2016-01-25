@@ -1,7 +1,6 @@
 package cn.syiyi.com.lightchat.module.main;
 
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
@@ -12,8 +11,8 @@ import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.syiyi.com.lightchat.R;
-import cn.syiyi.com.lightchat.common.SwiftTabLayout;
-import cn.syiyi.com.lightchat.module.chat.ChatFragment;
+import cn.syiyi.com.lightchat.common.view.SwiftTabLayout;
+import cn.syiyi.com.lightchat.module.chat.view.ChatFragment;
 import cn.syiyi.com.lightchat.module.contacts.ContactsFragment;
 import cn.syiyi.com.lightchat.module.friendsNews.FriendNewsFragment;
 import cn.syiyi.com.lightchat.module.main.adapter.MainAdapter;
@@ -40,11 +39,11 @@ public class MainActivity extends AppCompatActivity {
         mFragments = new ArrayList<>();
         Fragment chat = ChatFragment.newInstance("0", "0");
         Fragment contacts = ContactsFragment.newInstance("0", "0");
-        Fragment frientNews = FriendNewsFragment.newInstance("0", "0");
+        Fragment friendNews = FriendNewsFragment.newInstance("0", "0");
         Fragment mine = MineFragment.newInstance("0", "0");
         mFragments.add(chat);
         mFragments.add(contacts);
-        mFragments.add(frientNews);
+        mFragments.add(friendNews);
         mFragments.add(mine);
         mMainAdapter = new MainAdapter(getSupportFragmentManager(), mFragments);
         mContent.setAdapter(mMainAdapter);

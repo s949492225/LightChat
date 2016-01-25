@@ -1,5 +1,6 @@
 package cn.syiyi.com.lightchat.util;
 
+import android.content.Context;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
@@ -19,5 +20,9 @@ public class ViewUtil {
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setHomeButtonEnabled(true);
         }
+    }
+    public static int dpi2px(Context context,float dpi){
+        float density=context.getResources().getDisplayMetrics().density;
+        return (int) (density*dpi);
     }
 }

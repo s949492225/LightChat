@@ -1,13 +1,19 @@
-package cn.syiyi.com.lightchat.module.chat;
+package cn.syiyi.com.lightchat.module.chat.view;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import butterknife.Bind;
+import butterknife.ButterKnife;
 import cn.syiyi.com.lightchat.R;
+import cn.syiyi.com.lightchat.module.chat.adapter.ChatAdapter;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -19,7 +25,9 @@ public class ChatFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-
+    @Bind(R.id.recycleView)
+    RecyclerView recycleView;
+    private ChatAdapter mAdapter;
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
@@ -60,7 +68,26 @@ public class ChatFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_chat, container, false);
+        View parent = inflater.inflate(R.layout.fragment_chat, container, false);
+        ButterKnife.bind(this, parent);
+        return parent;
+    }
+
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(getContext());
+        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        recycleView.setLayoutManager(linearLayoutManager);
+        recycleView.addItemDecoration(new ChatAdapter.ChatDecoration(getContext()));
+        mAdapter=new ChatAdapter();
+        recycleView.setAdapter(mAdapter);
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        ButterKnife.unbind(this);
     }
 
 }
