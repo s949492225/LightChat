@@ -4,19 +4,17 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.Bind;
 import butterknife.ButterKnife;
 import cn.syiyi.com.lightchat.R;
-import cn.syiyi.com.lightchat.common.view.SwiftTabLayout;
-import cn.syiyi.com.lightchat.module.chat.view.ChatFragment;
-import cn.syiyi.com.lightchat.module.contacts.ContactsFragment;
+import cn.syiyi.com.lightchat.module.recent.view.RecentFragment;
+import cn.syiyi.com.lightchat.module.contacts.view.ContactsFragment;
 import cn.syiyi.com.lightchat.module.friendsNews.FriendNewsFragment;
 import cn.syiyi.com.lightchat.module.main.adapter.MainAdapter;
 import cn.syiyi.com.lightchat.module.mine.MineFragment;
+import cn.syiyi.com.swifttablayout.SwiftTabLayout;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -37,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void init() {
         mFragments = new ArrayList<>();
-        Fragment chat = ChatFragment.newInstance("0", "0");
+        Fragment chat = RecentFragment.newInstance("0", "0");
         Fragment contacts = ContactsFragment.newInstance("0", "0");
         Fragment friendNews = FriendNewsFragment.newInstance("0", "0");
         Fragment mine = MineFragment.newInstance("0", "0");

@@ -2,12 +2,29 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="cn.syiyi.com.lightchat.module.contacts.ContactsFragment">
+    tools:context=".module.contacts.view.ContactsFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycleView"
         android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <cn.syiyi.com.lightchat.view.SideBar
+        android:id="@+id/slideBar"
+        android:layout_width="20dp"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_gravity="end" />
+
+    <TextView
+        android:id="@+id/tv_alert"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:background="@drawable/alert_bg"
+        android:gravity="center"
+        android:text="A"
+        android:textColor="#fff"
+        android:textSize="30sp"
+        android:visibility="gone" />
 
 </FrameLayout>

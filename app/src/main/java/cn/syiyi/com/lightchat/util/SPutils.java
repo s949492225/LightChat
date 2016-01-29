@@ -27,6 +27,14 @@ public class SPutils {
         getSP(context).edit().putString("password", password).commit();
     }
 
+    public static int getKeyBoardHeight(Context context) {
+        return getSP(context).getInt("keyboardheight", 0);
+    }
+
+    public static void saveKeyBoardHeight(Context context, int keyBoardHeight) {
+        getSP(context).edit().putInt("keyboardheight", keyBoardHeight).commit();
+    }
+
     public static SharedPreferences getSP(Context context) {
         return context.getSharedPreferences(sp_name, Context.MODE_PRIVATE);
     }

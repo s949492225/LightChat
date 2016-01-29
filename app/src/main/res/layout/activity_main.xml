@@ -10,12 +10,11 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/tabhost" />
 
-    <cn.syiyi.com.lightchat.common.view.SwiftTabLayout
+    <cn.syiyi.com.swifttablayout.SwiftTabLayout
         android:id="@+id/tabhost"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:unSelectedTextColor="#cf3c3c"
-        app:SelectedTextColor="#5b844a"
-        />
+        app:SelectedTextColor="#cf3c3c"
+        app:unSelectedTextColor="#6b6b6b" />
 </RelativeLayout>

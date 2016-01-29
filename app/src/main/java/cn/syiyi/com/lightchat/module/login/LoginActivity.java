@@ -1,10 +1,16 @@
 package cn.syiyi.com.lightchat.module.login;
 
+import android.content.Context;
 import android.content.Intent;
+import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
+import android.view.ViewTreeObserver;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 
 import java.util.List;
 
@@ -16,10 +22,10 @@ import cn.bmob.v3.listener.FindListener;
 import cn.syiyi.com.lightchat.R;
 import cn.syiyi.com.lightchat.bean.UserInfo;
 import cn.syiyi.com.lightchat.event.LoginLoadDataEvent;
+import cn.syiyi.com.lightchat.module.main.MainActivity;
 import cn.syiyi.com.lightchat.util.SPutils;
 import cn.syiyi.com.lightchat.util.StringUtils;
 import cn.syiyi.com.lightchat.util.ToastUtils;
-import cn.syiyi.com.lightchat.module.main.MainActivity;
 import de.greenrobot.event.EventBus;
 import de.greenrobot.event.Subscribe;
 import de.greenrobot.event.ThreadMode;
@@ -30,6 +36,9 @@ public class LoginActivity extends AppCompatActivity {
     EditText mEtUsername;
     @Bind(R.id.et_password)
     EditText mEtPassword;
+    @Bind(R.id.root)
+    RelativeLayout mRoot;
+    private boolean haveSaveKeyBoardHight;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +60,26 @@ public class LoginActivity extends AppCompatActivity {
         if (mEtPassword != null) {
             mEtPassword.setText(pwd);
         }
+        mRoot.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @Override
+            public void onGlobalLayout() {
+                if (!haveSaveKeyBoardHight) {
+                    int height = mRoot.getHeight();
+                    Log.w("Foo", String.format("layout height: %d", height));
+                    Rect r = new Rect();
+                    mRoot.getWindowVisibleDisplayFrame(r);
+                    int visible = r.bottom - r.top;
+                    int keyBoardH = height - visible;
+                    Log.w("Foo", String.format("visible height: %d", visible));
+                    Log.w("Foo", String.format("keyboard height: %d", keyBoardH));
+                    if (keyBoardH > 0) {
+                        SPutils.saveKeyBoardHeight(getApplicationContext(), keyBoardH);
+                        haveSaveKeyBoardHight = true;
+                    }
+                }
+
+            }
+        });
 
     }
 

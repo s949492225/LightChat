@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/LightChat.iml" filepath="$PROJECT_DIR$/LightChat.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LightChat2.iml" filepath="$PROJECT_DIR$/LightChat2.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/selecorphotolibrary/selecorphotolibrary.iml" filepath="$PROJECT_DIR$/selecorphotolibrary/selecorphotolibrary.iml" />
+      <module fileurl="file://$PROJECT_DIR$/swifttablayout/swifttablayout.iml" filepath="$PROJECT_DIR$/swifttablayout/swifttablayout.iml" />
     </modules>
   </component>
 </project>

@@ -6,4 +6,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="btn_openImage">打开图片</string>
+    <string name="title_activity_chat">聊天</string>
 </resources>

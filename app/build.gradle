@@ -20,7 +20,7 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs',include: ['*.jar','*.arr'])
+    compile fileTree(dir: 'libs', include: ['*.jar', '*.arr'])
     testCompile 'junit:junit:4.12'
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
@@ -28,5 +28,7 @@ dependencies {
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'de.greenrobot:eventbus:3.0.0-beta1'
     compile 'com.android.support:support-v4:23.1.1'
-
+    compile 'com.github.promeg:tinypinyin:1.0.0'
+    compile project(':swifttablayout')
+    compile project(':selecorphotolibrary')
 }
